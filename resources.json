@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "updatedAt": "2026-06-15T13:01:58.345Z",
+  "repository": "mch1902879100-cmyk/japanecho-resources",
+  "resources": [
+    {
+      "id": "english-arthur-conan-doyle-selected",
+      "version": "1.0.0",
+      "title": "Arthur Conan Doyle / 阿瑟·柯南·道尔 精选集",
+      "author": "Arthur Conan Doyle / 阿瑟·柯南·道尔",
+      "language": "en",
+      "section": "初学者推荐",
+      "contentType": "text",
+      "includesAudio": false,
+      "albumCount": 12,
+      "size": 576558,
+      "sha256": "0bd987042cc3300ff6371f4ac0ae8e2ca25aa89c7de6641b9c1eccf75fec8d98",
+      "fileName": "english-arthur-conan-doyle-selected-v1.0.0.jepack",
+      "downloadUrl": "https://github.com/mch1902879100-cmyk/japanecho-resources/releases/download/resources-v1.0.0/english-arthur-conan-doyle-selected-v1.0.0.jepack",
+      "requiresAppVersion": "0.1.0"
+    }
+  ]
+}
