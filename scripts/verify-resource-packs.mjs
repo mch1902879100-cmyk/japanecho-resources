@@ -9,6 +9,13 @@ const resources = JSON.parse(await fs.readFile(path.join(root, "resources.json")
 if (!resources.resources?.length) throw new Error("resources.json contains no packs");
 
 for (const resource of resources.resources) {
+  if (resource.kind === "playback") {
+    if (resource.mobileVisible !== true) throw new Error(`${resource.id}: playback pack must be mobile-visible`);
+    if (!resource.includesAudio) throw new Error(`${resource.id}: playback pack must include audio`);
+    if (!Array.isArray(resource.albumIds) || resource.albumIds.length !== resource.albumCount) {
+      throw new Error(`${resource.id}: albumIds mismatch`);
+    }
+  }
   const packPath = path.join(root, "packs", resource.fileName);
   const bytes = await fs.readFile(packPath);
   const hash = crypto.createHash("sha256").update(bytes).digest("hex");
@@ -32,8 +39,18 @@ for (const resource of resources.resources) {
     if (path.isAbsolute(item.albumPath)) throw new Error(`${resource.id}: absolute album path leaked`);
     await fs.access(path.join(contents, item.albumPath, "manifest.json"));
     await fs.access(path.join(contents, item.albumPath, "segments.json"));
+    if (resource.kind === "playback") {
+      const segments = JSON.parse(await fs.readFile(path.join(contents, item.albumPath, "segments.json"), "utf8"));
+      if (!segments.length) throw new Error(`${resource.id}: playback album has no segments`);
+      for (const segment of segments) {
+        if (!String(segment.audioJP || "").endsWith(".mp3") || !String(segment.audioCN || "").endsWith(".mp3")) {
+          throw new Error(`${resource.id}: playback segment is not MP3`);
+        }
+        await fs.access(path.join(contents, item.albumPath, segment.audioJP));
+        await fs.access(path.join(contents, item.albumPath, segment.audioCN));
+      }
+    }
   }
   await fs.rm(tempRoot, { recursive: true, force: true });
   console.log(`Verified ${resource.id}: ${manifest.albumCount} albums, ${(bytes.length / 1024 / 1024).toFixed(2)} MB`);
 }
-

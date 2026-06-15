@@ -1,6 +1,6 @@
 {
-  "schemaVersion": 1,
-  "updatedAt": "2026-06-15T13:01:58.345Z",
+  "schemaVersion": 2,
+  "updatedAt": "2026-06-15T19:52:11.641Z",
   "repository": "mch1902879100-cmyk/japanecho-resources",
   "resources": [
     {
@@ -17,6 +17,27 @@
       "sha256": "0bd987042cc3300ff6371f4ac0ae8e2ca25aa89c7de6641b9c1eccf75fec8d98",
       "fileName": "english-arthur-conan-doyle-selected-v1.0.0.jepack",
       "downloadUrl": "https://github.com/mch1902879100-cmyk/japanecho-resources/releases/download/resources-v1.0.0/english-arthur-conan-doyle-selected-v1.0.0.jepack",
+      "requiresAppVersion": "0.1.0"
+    },
+    {
+      "id": "pilot-emily-dickinson-playback",
+      "version": "1.0.0",
+      "title": "Emily Dickinson / 艾米莉·狄金森 云端试听集",
+      "author": "Emily Dickinson / 艾米莉·狄金森",
+      "language": "en",
+      "section": "诗歌鉴赏",
+      "contentType": "audio",
+      "kind": "playback",
+      "mobileVisible": true,
+      "includesAudio": true,
+      "albumIds": [
+        "emily-dickinson-poem-002"
+      ],
+      "albumCount": 1,
+      "size": 405369,
+      "sha256": "961811bdcd4f0eb0139e0af6ed78bfc21e639134bef1a8e6e34b467e2caa2749",
+      "fileName": "pilot-emily-dickinson-playback-v1.0.0.jepack",
+      "downloadUrl": "https://github.com/mch1902879100-cmyk/japanecho-resources/releases/download/resources-v1.0.0/pilot-emily-dickinson-playback-v1.0.0.jepack",
       "requiresAppVersion": "0.1.0"
     }
   ]
